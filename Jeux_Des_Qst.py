@@ -44,9 +44,9 @@ def pourcent():
     "Se présenter en utilisant un accent différent.",
 ]
     
-    res_gages = random.choices(gages)
+    res_gages = ''.join(random.choices(gages))
     
-    pourcentage = (nbr_partie_joué // bonne_reponse) * 100
+    pourcentage = (bonne_reponse / nbr_partie_joué ) * 100
     
     if pourcentage < 50:
     
@@ -67,8 +67,8 @@ def pourcent():
         
         print(res_gages)
         
-        oui_or_non = int(input("A tu réaliser ton gage ? ( o = oui ) et ( n = non )"))
-        
+        oui_or_non = str(input("A tu réaliser ton gage ? ( o = oui ) et ( n = non )"))
+
         if oui_or_non == 'o':
             print("Bien jouer")
         
