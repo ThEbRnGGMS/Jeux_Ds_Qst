@@ -4,16 +4,77 @@ import time
 def nbrPartie():
     print('tu as joué',nbr_partie_joué,'partie')
 
-print("Bienvenue dans le jeux des questions")
+print("Bienvenue dans le jeux des questions avec des gages")
 
 time.sleep(1)
 
 print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
 
+time.sleep(1)
+
+print("Si tu as moins de 50 pourcent de bonne réponse = gage")
+
 qst = int(input("Combien de question veut tu faires ? : "))
 
 nbr_partie_joué = 0
 bonne_reponse = 0
+
+def pourcent():
+    
+    gages = [
+    "Faire 10 pompes.",
+    "Faire 20 sauts en place.",
+    "Faire un compliment à la personne à sa gauche.",
+    "Raconter une blague drôle.",
+    "Faire une grimace amusante.",
+    "Écrire un petit poème sur le thème de la nature.",
+    "Faire une danse de quelques secondes.",
+    "Faire un câlin à quelqu'un.",
+    "Dire 'je t'aime' à un membre de la famille.",
+    "Imiter un animal pendant 30 secondes.",
+    "Faire une révérence comme dans un spectacle.",
+    "Dire quelque chose que vous appréciez chez chaque personne présente.",
+    "Faire une imitation de personnage célèbre.",
+    "Faire une roue arrière sur une jambe pendant quelques secondes.",
+    "Siffler une chanson de votre choix.",
+    "Faire une pose de yoga simple.",
+    "Dessiner quelque chose en moins de 2 minutes.",
+    "Faire une danse de la victoire.",
+    "Faire une grimace de sourire pendant 10 secondes.",
+    "Se présenter en utilisant un accent différent.",
+]
+    
+    res_gages = random.choices(gages)
+    
+    pourcentage = (nbr_partie_joué // bonne_reponse) * 100
+    
+    if pourcentage < 50:
+    
+        print("tu as un gage !!!")
+        
+        time.sleep(1)
+        
+        print("ton gages sera donnée dans :")
+        
+        time.sleep(1)
+        print('3')
+        time.sleep(1)
+        print('2')
+        time.sleep(1)
+        print('1')
+        time.sleep(1)
+        print('0')
+        
+        print(res_gages)
+        
+        oui_or_non = int(input("A tu réaliser ton gage ? ( o = oui ) et ( n = non )"))
+        
+        if oui_or_non == 'o':
+            print("Bien jouer")
+        
+        else:
+            print("Tu es vraiment nul")
+
 
 questions_reponses_facile = {
     "Quelle est la capitale de la France ?": "paris",
@@ -124,6 +185,8 @@ while nbr_partie_joué < qst:
 time.sleep(1)
 
 print('Nombre de bonne réponse = ',bonne_reponse)
+
+pourcent()
 
 time.sleep(1)
 
