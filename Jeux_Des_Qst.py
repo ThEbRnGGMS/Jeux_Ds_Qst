@@ -8,16 +8,13 @@ print("Bienvenue dans le jeux des questions avec des gages")
 
 time.sleep(1)
 
+md_jeux = str(input("Veut tu jouer a le version enfant (e) ou adulte (a) ? : "))
+
 print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
 
 time.sleep(1)
 
 print("Si tu as moins de 50 pourcent de bonne réponse = gage")
-
-qst = int(input("Combien de question veut tu faires ? : "))
-
-nbr_partie_joué = 0
-bonne_reponse = 0
 
 def pourcent():
     
@@ -75,7 +72,6 @@ def pourcent():
         else:
             print("Tu es vraiment nul")
 
-
 questions_reponses_facile = {
     "Quelle est la capitale de la France ?": "paris",
     "Qui a peint la Mona Lisa ?": "de-vinci",
@@ -113,81 +109,243 @@ questions_reponses_difficile = {
     "Quelle est la capitale de l'Australie ?": "canberra",
 }
 
-mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+question_adulte_facile = {
+    "Quel est le nom de l'océan qui se trouve à l'est des États-Unis ?": "atlantique",
+    "Quel est le principal ingrédient de la pizza Margherita ?": "mozzarella",
+    "Qui a écrit 'Roméo et Juliette' ?": "shakespeare",
+    "Quel est le plus grand organe du corps humain ?": "peau",
+    "Combien de jours y a-t-il dans une année bissextile ?": "366",
+    "Quel est le symbole chimique de l'élément oxygène ?": "O",
+    "Dans quel pays se trouve la tour de Pise ?": "italie",
+    "Qui a peint 'La Joconde' ?": "de vinci",
+    "Quel est le nom de l'animal national de l'Australie ?": "kangourou",
+    "Quel est le premier mois de l'année civile ?": "janvier",
+}
+
+question_adulte_moyen = {
+    "Quel est le nom de la plus haute montagne du monde ?": "everset",
+    "Qui a écrit le livre '1984' ?": "orwell",
+    "Quelle est la capitale de l'Australie ?": "canberra",
+    "Quel est le nom de l'organe responsable de la filtration du sang dans le corps humain ?": "rein",
+    "Quel est l'auteur de la théorie de la relativité restreinte ?": "albert einstein",
+    "Quel est le plus grand désert du monde ?": "antarctique",
+    "Qui a peint 'La Nuit étoilée' ?": "vincent van gogh",
+    "Quel est l'élément chimique le plus abondant dans l'univers ?": "hydrogène",
+    "Quel est le nom du premier homme à avoir marché sur la lune ?": "neil armstrong",
+    "Quel est le principal constituant de l'atmosphère terrestre ?": "azote",
+}
+
+question_adulte_difficile = {
+    "Qui est le seul président américain à avoir renoncé à son mandat ?": "richard nixon",
+    "Quelle est la formule chimique de l'hexafluorure de soufre ?": "SF6",
+    "Quel est le nom du plus grand lac d'eau douce du monde par superficie ?": "lac superieur",
+    "Quel est le nom de l'empereur romain qui a régné le plus longtemps ?": "auguste",
+    "Quel est le nom de la mission spatiale qui a posé le premier homme sur la Lune ?": "apollo 11",
+    "Quelle est la hauteur exacte de la statue de la Liberté, du sol à la pointe de la flamme ?": "93",
+    "Qui a inventé le microscope ?": "jansenn",
+    "Combien de symphonies a composées Ludwig van Beethoven ?": "9",
+    "Quelle est la vitesse de la lumière en mètres par seconde ?": "300 000 000",
+    "Quelle est la formule chimique de l'anhydride sulfurique ?": "SO3",
+}
 
 time.sleep(1)
 
-print("tu es prêts")
-time.sleep(1)
-print('3')
-time.sleep(1)
-print('2')
-time.sleep(1)
-print('1')
-time.sleep(1)
-print('go')
-
-while nbr_partie_joué < qst:
+if md_jeux == '1':
     
-    if mdj == 1:
-
-        question = random.choice(list(questions_reponses_facile.keys()))
-
-        print(question)
-        reponse_utilisateur = input("Votre réponse : ")
-
-        time.sleep(1)
+    nbr_partie_joué = 0
+    bonne_reponse = 0
+    
+    qst = int(input("Combien de question veut tu faires ? : "))
+    
+    mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+    
+    while nbr_partie_joué < qst:
         
-        if reponse_utilisateur == questions_reponses_facile[question]:
-            print("Bonne réponse !")
-            bonne_reponse += 1
-        else:
-            print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
-        
-        nbr_partie_joué += 1  
-        
-    if mdj == 2:
-
-        question = random.choice(list(questions_reponses_moyen.keys()))
-
-        print(question)
-        reponse_utilisateur = input("Votre réponse : ")
-        
-        time.sleep(1)
-        
-        if reponse_utilisateur == questions_reponses_moyen[question]:
-            print("Bonne réponse !")
-            bonne_reponse += 1
-        else:
-            print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
+        if mdj == 1:
             
-        nbr_partie_joué += 1
-        
-    if mdj == 3:
-        
-        question = random.choice(list(questions_reponses_difficile.keys()))
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
 
-        print(question)
-        reponse_utilisateur = input("Votre réponse : ")
+            question = random.choice(list(questions_reponses_facile.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+
+            time.sleep(1)
+            
+            if reponse_utilisateur == questions_reponses_facile[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
+            
+            nbr_partie_joué += 1  
+            
+        if mdj == 2:
+            
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
+
+            question = random.choice(list(questions_reponses_moyen.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+            
+            time.sleep(1)
+            
+            if reponse_utilisateur == questions_reponses_moyen[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
+                
+            nbr_partie_joué += 1
+            
+        if mdj == 3:
+            
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
+            
+            question = random.choice(list(questions_reponses_difficile.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+
+            time.sleep(1)
+            
+            if reponse_utilisateur == questions_reponses_difficile[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
+                
+            nbr_partie_joué += 1    
+            
+        nbrPartie()
+
+    time.sleep(1)
+
+    print('Nombre de bonne réponse = ',bonne_reponse)
+
+    pourcent()
+
+if md_jeux == "2":
+    
+    qst = int(input("Combien de question veut tu faires ? : "))
+    
+    nbr_partie_joué = 0
+    bonne_reponse = 0
+    
+    mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+
+    while nbr_partie_joué < qst:
+        
+        if mdj == 1:
+            
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
+
+            question = random.choice(list(question_adulte_facile.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+
+            time.sleep(1)
+            
+            if reponse_utilisateur == question_adulte_facile[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
+            
+            nbr_partie_joué += 1  
+            
+        if mdj == 2:
+            
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
+
+            question = random.choice(list(question_adulte_moyen.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+            
+            time.sleep(1)
+            
+            if reponse_utilisateur == question_adulte_moyen[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_moyen[question]}")
+                
+            nbr_partie_joué += 1
+            
+        if mdj == 3:
+            
+            print("tu es prêts")
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(1)
+            print('go')
+            
+            question = random.choice(list(question_adulte_difficile.keys()))
+
+            print(question)
+            reponse_utilisateur = input("Votre réponse : ")
+
+            time.sleep(1)
+            
+            if reponse_utilisateur == question_adulte_difficile[question]:
+                print("Bonne réponse !")
+                bonne_reponse += 1
+            else:
+                print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_difficile[question]}")
+            
+            nbr_partie_joué += 1    
+            
+        nbrPartie()
 
         time.sleep(1)
-        
-        if reponse_utilisateur == questions_reponses_difficile[question]:
-            print("Bonne réponse !")
-            bonne_reponse += 1
-        else:
-            print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
-            
-        nbr_partie_joué += 1    
-        
-    nbrPartie()
 
-time.sleep(1)
+        print('Nombre de bonne réponse = ',bonne_reponse)
 
-print('Nombre de bonne réponse = ',bonne_reponse)
-
-pourcent()
-
-time.sleep(1)
-
-print("fin du jeux")
+        pourcent()
