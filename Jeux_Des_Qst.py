@@ -1,6 +1,9 @@
 import random
 import time
 
+nbr_partie_joué = 0
+bonne_reponse = 0
+
 def pourcent():
     
     gages = [
@@ -25,8 +28,6 @@ def pourcent():
     "Faire une grimace de sourire pendant 10 secondes.",
     "Se présenter en utilisant un accent différent.",
 ]
-    
-    nbr_partie_joué = 0
     
     res_gages = ''.join(random.choices(gages))
     
@@ -155,9 +156,6 @@ time.sleep(1)
 
 if md_jeux == 'e':
     
-    nbr_partie_joué = 0
-    bonne_reponse = 0
-    
     print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
 
     time.sleep(1)
@@ -230,11 +228,6 @@ if md_jeux == 'e':
                 print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
                 
             nbr_partie_joué += 1
-
-    time.sleep(1)
-
-    print('Nombre de bonne réponse = ',bonne_reponse)
-
     pourcent()
 
 if md_jeux == "a":
@@ -248,12 +241,7 @@ if md_jeux == "a":
     time.sleep(1)
     
     qst = int(input("Combien de question veut tu faires ? : "))
-    
-    qst = int(input("Combien de question veut tu faires ? : "))
-    
-    nbr_partie_joué = 0
-    bonne_reponse = 0
-    
+
     mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
 
     while nbr_partie_joué < qst:
@@ -273,7 +261,7 @@ if md_jeux == "a":
                 print("Bonne réponse !")
                 bonne_reponse += 1
             else:
-                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
+                print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_facile[question]}")
             
             nbr_partie_joué += 1  
             
@@ -313,12 +301,13 @@ if md_jeux == "a":
             else:
                 print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_difficile[question]}")
             
-            nbr_partie_joué += 1    
+            nbr_partie_joué += 1   
+
+    pourcent() 
 
 if md_jeux == 's':
-    
+   
     mauvaise_rep = 0
-    bonne_reponse = 0
     
     print("Ce mode de jeux consiste à avoir le plus grand nombre de bonne réponse sans se tromper")
     
@@ -395,6 +384,3 @@ if md_jeux == 's':
 time.sleep(1)
 
 print('Nombre de bonne réponse = ',bonne_reponse)
-
-"""if md_jeux == 'a' or 'e':
-    pourcent()"""
