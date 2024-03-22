@@ -4,18 +4,6 @@ import time
 def nbrPartie():
     print('tu as joué',nbr_partie_joué,'partie')
 
-print("Bienvenue dans le jeux des questions avec des gages")
-
-time.sleep(1)
-
-md_jeux = str(input("Veut tu jouer a le version enfant (e) ou adulte (a) ? : "))
-
-print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
-
-time.sleep(1)
-
-print("Si tu as moins de 50 pourcent de bonne réponse = gage")
-
 def pourcent():
     
     gages = [
@@ -85,7 +73,6 @@ questions_reponses_facile = {
     "Comment s'appelle le petit du lion ?": "lionceau",
 }
 
-
 questions_reponses_moyen =  {
     "Qui est le meilleur ami de Mickey Mouse ?": "pluto",
     "Quel est l'animal qui porte une carapace sur son dos ?": "tortue",
@@ -148,9 +135,21 @@ question_adulte_difficile = {
     "Quelle est la formule chimique de l'anhydride sulfurique ?": "SO3",
 }
 
+print("Bienvenue dans le jeux des questions avec des gages")
+
 time.sleep(1)
 
-if md_jeux == '1':
+md_jeux = str(input("Veut tu jouer a le version enfant (e) ou adulte (a) ? : "))
+
+print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
+
+time.sleep(1)
+
+print("Si tu as moins de 50 pourcent de bonne réponse = gage")
+
+time.sleep(1)
+
+if md_jeux == 'e':
     
     nbr_partie_joué = 0
     bonne_reponse = 0
@@ -250,7 +249,7 @@ if md_jeux == '1':
 
     pourcent()
 
-if md_jeux == "2":
+if md_jeux == "a":
     
     qst = int(input("Combien de question veut tu faires ? : "))
     
@@ -342,10 +341,10 @@ if md_jeux == "2":
             
             nbr_partie_joué += 1    
             
-        nbrPartie()
+nbrPartie()
 
-        time.sleep(1)
+time.sleep(1)
 
-        print('Nombre de bonne réponse = ',bonne_reponse)
+print('Nombre de bonne réponse = ',bonne_reponse)
 
-        pourcent()
+pourcent()
