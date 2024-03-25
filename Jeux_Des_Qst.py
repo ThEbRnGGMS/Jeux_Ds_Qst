@@ -28,7 +28,7 @@ def pourcent():
     "Faire une grimace de sourire pendant 10 secondes.",
     "Se présenter en utilisant un accent différent.",
 ]
-    
+        
     res_gages = ''.join(random.choices(gages))
     
     pourcentage = (bonne_reponse / nbr_partie_joué ) * 100
@@ -154,6 +154,10 @@ md_jeux = str(input("Veut tu jouer a le version enfant (e) ou adulte (a) ou surv
 
 time.sleep(1)
 
+while md_jeux not in ["e", "a", "s"]:
+    print("Choix incorrect")
+    md_jeux = str(input("Veut tu jouer a le version enfant (e) ou adulte (a) ou survie (s) ? : "))
+    
 if md_jeux == 'e':
     
     print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
@@ -171,6 +175,9 @@ if md_jeux == 'e':
     mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
     
     while nbr_partie_joué < qst:
+        
+        if mdj not in ['1', '2', '3']:
+                print("Choix incorrect")
         
         if mdj == 1:
             
@@ -246,6 +253,9 @@ if md_jeux == "a":
 
     while nbr_partie_joué < qst:
         
+        if mdj not in ['1', '2', '3']:
+                print("Choix incorrect")
+        
         if mdj == 1:
             
             decompte()
@@ -306,81 +316,175 @@ if md_jeux == "a":
     pourcent() 
 
 if md_jeux == 's':
-   
-    mauvaise_rep = 0
-    
-    print("Ce mode de jeux consiste à avoir le plus grand nombre de bonne réponse sans se tromper")
     
     time.sleep(1)
     
-    print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
+    version = int(input("Version enfant (1) ou adulte (2) : "))
     
-    time.sleep(1)
+    if version not in ["1", "2"]:
+                print("Choix incorrect")
     
-    mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+    if version == '1':
     
-    while mauvaise_rep != 1:
+        mauvaise_rep = 0
         
-        if mdj == 1:
+        print("Ce mode de jeux consiste à avoir le plus grand nombre de bonne réponse sans se tromper")
+        
+        time.sleep(1)
+        
+        print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
+        
+        time.sleep(1)
+        
+        mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+        
+        while mauvaise_rep != 1:
             
-            decompte()
+            if mdj not in ['1', '2', '3']:
+                print("Choix incorrect")
             
-            question = random.choice(list(questions_reponses_facile.keys()))
+            if mdj == 1:
+                
+                decompte()
+                
+                question = random.choice(list(questions_reponses_facile.keys()))
 
-            print(question)
-            reponse_utilisateur = input("Votre réponse : ")
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
 
-            time.sleep(1)
+                time.sleep(1)
+                
+                if reponse_utilisateur == questions_reponses_facile[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
+                    mauvaise_rep += 1 
+                    print("Dommage !!!") 
+                    break
+                
+            if mdj == 2:
+                
+                decompte()
+
+                question = random.choice(list(questions_reponses_moyen.keys()))
+
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
+                
+                time.sleep(1)
+                
+                if reponse_utilisateur == questions_reponses_moyen[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
+                    mauvaise_rep += 1
+                    print("Dommage !!!") 
+                    break
+                
+            if mdj == 3:
+                
+                decompte()
+                
+                question = random.choice(list(questions_reponses_difficile.keys()))
+
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
+
+                time.sleep(1)
+                
+                if reponse_utilisateur == questions_reponses_difficile[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
+                    mauvaise_rep += 1
+                    print("Dommage !!!")  
+                    break
+                
+    elif version == '2':
+    
+        mauvaise_rep = 0
+        
+        print("Ce mode de jeux consiste à avoir le plus grand nombre de bonne réponse sans se tromper")
+        
+        time.sleep(1)
+        
+        print("Il y a 3 modes de jeux : ( 1 = facile) ( 2 = moyen) ( 3 = difficile )")
+        
+        time.sleep(1)
+        
+        mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
+        
+        while mauvaise_rep != 1:
             
-            if reponse_utilisateur == questions_reponses_facile[question]:
-                print("Bonne réponse !")
-                bonne_reponse += 1
+            if mdj == 1:
+                
+                decompte()
+                
+                question = random.choice(list(question_adulte_facile.keys()))
+
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
+
+                time.sleep(1)
+                
+                if reponse_utilisateur == question_adulte_facile[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_facile[question]}")
+                    mauvaise_rep += 1 
+                    print("Dommage !!!") 
+                    break
+                
+            if mdj == 2:
+                
+                decompte()
+
+                question = random.choice(list(question_adulte_moyen.keys()))
+
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
+                
+                time.sleep(1)
+                
+                if reponse_utilisateur == question_adulte_moyen[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_moyen[question]}")
+                    mauvaise_rep += 1
+                    print("Dommage !!!") 
+                    break
+                
+            if mdj == 3:
+                
+                decompte()
+                
+                question = random.choice(list(question_adulte_difficile.keys()))
+
+                print(question)
+                reponse_utilisateur = input("Votre réponse : ")
+
+                time.sleep(1)
+                
+                if reponse_utilisateur == question_adulte_difficile[question]:
+                    print("Bonne réponse !")
+                    bonne_reponse += 1
+                else:
+                    print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_difficile[question]}")
+                    mauvaise_rep += 1
+                    print("Dommage !!!")  
+                    break
+            
             else:
-                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
-                mauvaise_rep += 1 
-                print("Dommage !!!") 
-                break
-            
-        if mdj == 2:
-            
-            decompte()
+                print("Choix incorrect")
 
-            question = random.choice(list(questions_reponses_moyen.keys()))
-
-            print(question)
-            reponse_utilisateur = input("Votre réponse : ")
-            
-            time.sleep(1)
-            
-            if reponse_utilisateur == questions_reponses_moyen[question]:
-                print("Bonne réponse !")
-                bonne_reponse += 1
-            else:
-                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
-                mauvaise_rep += 1
-                print("Dommage !!!") 
-                break
-            
-        if mdj == 3:
-            
-            decompte()
-            
-            question = random.choice(list(questions_reponses_difficile.keys()))
-
-            print(question)
-            reponse_utilisateur = input("Votre réponse : ")
-
-            time.sleep(1)
-            
-            if reponse_utilisateur == questions_reponses_difficile[question]:
-                print("Bonne réponse !")
-                bonne_reponse += 1
-            else:
-                print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
-                mauvaise_rep += 1
-                print("Dommage !!!")  
-                break
-
+if md_jeux in ["e", "a"]:
+    pourcent()
+    
 time.sleep(1)
 
 print('Nombre de bonne réponse = ',bonne_reponse)
