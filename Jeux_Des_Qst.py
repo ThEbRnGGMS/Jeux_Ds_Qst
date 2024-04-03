@@ -48,17 +48,17 @@ def pourcent():
         time.sleep(1)
         print('1')
         time.sleep(1)
-        print('0')
+        print('Gage donné')
         
         print(res_gages)
         
         oui_or_non = str(input("A tu réaliser ton gage ? ( o = oui ) et ( n = non )"))
 
-        if oui_or_non == 'o':
-            print("Bien jouer")
+    if oui_or_non == 'o':
+        print("Bien jouer")
         
-        else:
-            print("Tu es vraiment nul")
+    else:
+        print("Tu es vraiment nul")
 
 def decompte():
     print("tu es prêts")
@@ -176,9 +176,6 @@ if md_jeux == 'e':
     
     while nbr_partie_joué < qst:
         
-        if mdj not in ['1', '2', '3']:
-                print("Choix incorrect")
-        
         if mdj == 1:
             
             decompte()
@@ -214,7 +211,7 @@ if md_jeux == 'e':
                 bonne_reponse += 1
             else:
                 print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
-                
+            
             nbr_partie_joué += 1
             
         if mdj == 3:
@@ -235,6 +232,10 @@ if md_jeux == 'e':
                 print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
                 
             nbr_partie_joué += 1
+
+        else:
+            print("Choix incorrect")
+            
     pourcent()
 
 if md_jeux == "a":
@@ -252,9 +253,6 @@ if md_jeux == "a":
     mdj = int(input("Tu veux jouer niveau : Facile(1); Moyen(2) ou Difficile(3) : "))
 
     while nbr_partie_joué < qst:
-        
-        if mdj not in ['1', '2', '3']:
-                print("Choix incorrect")
         
         if mdj == 1:
             
@@ -311,8 +309,10 @@ if md_jeux == "a":
             else:
                 print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_difficile[question]}")
             
-            nbr_partie_joué += 1   
-
+            nbr_partie_joué += 1  
+        else:
+            print("Choix incorrect")
+            
     pourcent() 
 
 if md_jeux == 's':
@@ -320,9 +320,6 @@ if md_jeux == 's':
     time.sleep(1)
     
     version = int(input("Version enfant (1) ou adulte (2) : "))
-    
-    if version not in ["1", "2"]:
-                print("Choix incorrect")
     
     if version == '1':
     
@@ -361,7 +358,6 @@ if md_jeux == 's':
                     print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_facile[question]}")
                     mauvaise_rep += 1 
                     print("Dommage !!!") 
-                    break
                 
             if mdj == 2:
                 
@@ -381,7 +377,6 @@ if md_jeux == 's':
                     print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_moyen[question]}")
                     mauvaise_rep += 1
                     print("Dommage !!!") 
-                    break
                 
             if mdj == 3:
                 
@@ -401,7 +396,6 @@ if md_jeux == 's':
                     print(f"Mauvaise réponse. La réponse correcte est : {questions_reponses_difficile[question]}")
                     mauvaise_rep += 1
                     print("Dommage !!!")  
-                    break
                 
     elif version == '2':
     
@@ -437,7 +431,6 @@ if md_jeux == 's':
                     print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_facile[question]}")
                     mauvaise_rep += 1 
                     print("Dommage !!!") 
-                    break
                 
             if mdj == 2:
                 
@@ -456,8 +449,7 @@ if md_jeux == 's':
                 else:
                     print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_moyen[question]}")
                     mauvaise_rep += 1
-                    print("Dommage !!!") 
-                    break
+                    print("Dommage !!!")  
                 
             if mdj == 3:
                 
@@ -477,13 +469,9 @@ if md_jeux == 's':
                     print(f"Mauvaise réponse. La réponse correcte est : {question_adulte_difficile[question]}")
                     mauvaise_rep += 1
                     print("Dommage !!!")  
-                    break
             
             else:
                 print("Choix incorrect")
-
-if md_jeux in ["e", "a"]:
-    pourcent()
     
 time.sleep(1)
 
